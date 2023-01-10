@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/analyzer
+    username: fenige
+    password: fenige
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 8000
+      org:
+        hibernate:
+          envers:
+            track_entities_changed_in_revision: true
+    show-sql: false
+  flyway:
+    enabled: true
+    baselineOnMigrate: true
+    table: flyway_schema_history
